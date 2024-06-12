@@ -7,9 +7,10 @@
           <CalendarWatch></CalendarWatch>
         </Col>
         <Col span="12">
-          
+          <NotificationBar></NotificationBar>
         </Col>
       </Row> 
+      <NoticeBoard></NoticeBoard>
     </LayoutContent>
   </Layout>
 
@@ -21,7 +22,9 @@ import UserHeader from '@/views/backEnd/personal/components/UserHeader.vue'
 //@ts-ignore
 import CalendarWatch from '@/views/backEnd/personal/components/CalendarWatch.vue'
 //@ts-ignore
-import CourseReminder from '@/views/backEnd/personal/components/CourseReminder.vue'
+import NotificationBar from '@/views/backEnd/personal/components/NotificationBar.vue'
+//@ts-ignore
+import NoticeBoard from '@/views/backEnd/personal/components/NoticeBoard.vue'
 import { Layout,LayoutContent,Row,Col,LayoutFooter} from 'ant-design-vue';
 import { ref } from 'vue';
 

@@ -5,16 +5,18 @@
     style="max-height: 300px;width: 320px; overflow-y: auto; padding: 10px; gap: 10px;"
   >
     <template #renderItem="{ item }">
-      <ListItem style="margin-bottom: 10px; border: 1px solid #e8e8e8; padding: 10px;">
+      <ListItem class="list-item" @click = "navigateTo('/myStudy/signin')">
         <ListItemMeta>
           <template #title>
-            <a href="https://www.antdv.com/">{{ item.name }}</a>
+            <p>{{ item.name }}</p>
           </template>
           <template #description>
             {{ item.time.beginTime }} - {{ item.time.endTime }} | {{ item.location }}
           </template>
           <template #avatar>
-            <Avatar src="https://joeschmoe.io/api/v1/random" />
+            <Avatar  shape="square":style="{ backgroundColor: '#1890ff', verticalAlign: 'middle' }">
+              {{item.name}}
+            </Avatar>
           </template>
         </ListItemMeta>
       </ListItem>
@@ -26,10 +28,16 @@
 import { List, ListItem, ListItemMeta, Avatar } from 'ant-design-vue';
 //@ts-ignore
 import { CourseInfo } from '@/views/backEnd/personal/interface/DataFormat';
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
 const props = defineProps<{
       dayCourseInfo : CourseInfo[]
     }>();
 
+const navigateTo = (path: string) => {
+    router.push(path);
+  };
 const data : CourseInfo[] = [
   {
     name: '高等数学',
@@ -69,3 +77,16 @@ const data : CourseInfo[] = [
   },
 ];
 </script>
+
+<style>
+.list-item{
+
+  margin-bottom: 10px; 
+  border: 1px solid #e8e8e8; 
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+</style>

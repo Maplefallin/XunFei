@@ -1,14 +1,14 @@
 <template>
     <div class="menu">
-      <div class="menu-item" @click="navigateTo('/signin')">
+      <div class="menu-item" @click="navigateTo('/myStudy/signin')">
         <CheckOutlined class="menu-icon" />
         <div class="menu-text">签到</div>
       </div>
-      <div class="menu-item" @click="navigateTo('/record')">
+      <div class="menu-item" @click="navigateTo('/myStudy/record')">
         <BookOutlined class="menu-icon" />
         <div class="menu-text">课程</div>
       </div>
-      <div class="menu-item" @click="navigateTo('/record')">
+      <div class="menu-item" @click="navigateTo('/myStudy/record')">
         <CalendarOutlined class="menu-icon" />
         <div class="menu-text">课程表</div>
       </div>

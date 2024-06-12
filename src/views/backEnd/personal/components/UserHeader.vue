@@ -14,16 +14,16 @@
           </div>
          <div class="options" style="height: 100%;">
           <div class="menu">
-            <div class="menu-item" >
-              <CheckOutlined class="menu-icon" />
+            <div class="menu-item" @click="navigateTo('/myStudy/signin')">
+              <CheckOutlined class="menu-icon"  />
               <div class="menu-text">签到</div>
             </div>
-            <div class="menu-item" >
-              <BookOutlined class="menu-icon" />
+            <div class="menu-item" @click="navigateTo('/myStudy/signin')">
+              <BookOutlined class="menu-icon"  />
               <div class="menu-text">课程</div>
             </div>
-            <div class="menu-item">
-              <CalendarOutlined class="menu-icon" />
+            <div class="menu-item"@click="navigateTo('/myStudy/signin')">
+              <CalendarOutlined class="menu-icon"  />
               <div class="menu-text">课程表</div>
             </div>
           </div>
@@ -39,6 +39,12 @@
   import SkipOptions from './SkipOptions.vue';
   import { useRouter } from 'vue-router';
   import { CheckOutlined, BookOutlined, CalendarOutlined } from '@ant-design/icons-vue';
+  
+  const router = useRouter();
+  
+  const navigateTo = (path: string) => {
+    router.push(path);
+  };
   
   const props = defineProps<{
       name: string ;

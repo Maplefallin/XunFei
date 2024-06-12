@@ -4,7 +4,7 @@ import { ref } from "vue";
 
 
 export const getDayCourse = (selectedDate:string) => {
-    // 注册功能
+    // 按日期获取课程
     return instance({
         method: "get",
         url: "course/getDayCourse",

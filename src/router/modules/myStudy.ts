@@ -14,6 +14,14 @@ const route:Array<RouteRecordRaw>=[
     },
     children:[
         {
+            name:"myCourse",
+            path:"myCourse",
+            component:()=>import('@/views/course/index.vue'),
+            meta:{
+                title:"我的课程"
+            }
+        },
+        {
             name:"signin",
             path:"signin",
             component:()=>import('@/views/sign/index.vue'),
