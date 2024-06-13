@@ -16,6 +16,7 @@ const route:Array<RouteRecordRaw>=[
         {
             name:"myCourse",
             path:"myCourse",
+            //@ts-ignore
             component:()=>import('@/views/course/index.vue'),
             meta:{
                 title:"我的课程"
