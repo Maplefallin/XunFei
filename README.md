@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # xunfeiProject
 
 This template should help get you started developing with Vue 3 in Vite.
@@ -37,3 +38,7 @@ pnpm build
 ```sh
 pnpm lint
 ```
+=======
+# XunFei
+讯飞人工智能平台学生端
+>>>>>>> ebcb878600769000b733f54114e058cf34da3470
