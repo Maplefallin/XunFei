@@ -1,15 +1,14 @@
 <template>
-  <a-row :gutter = "[16,16]">
+  <a-row :gutter = "[16,16]" >
     <a-col 
     :span="6"
     v-for="(item) in data"
     :key="item.id"
     >
-      <div class="item">
+      <div class="item" @click = "navigateTo('/myStudy/signin')">
         <CourseItem :data="item" ></CourseItem>
       </div>
     </a-col>
-    
   </a-row>
 
 </template>
@@ -36,7 +35,7 @@ const navigateTo = (path: string) => {
 const data : CourseDataForm []= [
   {
     id:1,
-    name : '高等数学',
+    name : '计算机组成原理',
     teacher_id : 1,
     teacher_name : '许小龙',
     semester : '2023-2024-2',
@@ -90,10 +89,8 @@ const data : CourseDataForm []= [
 .item{
   background: transparent;
   border: 0;
-  height: 120px;
   font-size: 14px;
   line-height: 120px;
- 
   border-radius: 4px;
   padding: 0;
 }
