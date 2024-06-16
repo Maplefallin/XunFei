@@ -29,7 +29,7 @@
   import type { CourseDataForm } from '../interface/DataFormat';
   
   const props = defineProps<{
-      data : CourseDataForm[]
+      data : CourseDataForm
     }>();
   
   const components = {
