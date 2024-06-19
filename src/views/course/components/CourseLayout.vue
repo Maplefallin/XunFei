@@ -1,16 +1,17 @@
 <template>
-  <a-row :gutter = "[16,16]" >
-    <a-col 
-    :span="6"
-    v-for="(item) in data"
-    :key="item.id"
-    >
-      <div class="item" @click = "navigateTo('/myStudy/signin')">
-        <CourseItem :data="item" ></CourseItem>
-      </div>
-    </a-col>
-  </a-row>
-
+  <div class="scrollable-container">
+    <a-row :gutter="[16, 16]">
+      <a-col 
+        :span="6"
+        v-for="(item) in props.data"
+        :key="item.id"
+      >
+        <div class="item" @click="navigateTo('/myStudy/signin')">
+          <CourseItem :data="item"></CourseItem>
+        </div>
+      </a-col>
+    </a-row>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -27,61 +28,10 @@ const navigateTo = (path: string) => {
   router.push(path);
 };
 
-// const props = defineProps<{
-//     name: string ;
-//     todayUseTime : string;
-//   }>();
-
-const data : CourseDataForm []= [
-  {
-    id:1,
-    name : '计算机组成原理',
-    teacher_id : 1,
-    teacher_name : '许小龙',
-    semester : '2023-2024-2',
-    cover_image : '@/assets/img/image.png',
-  },
-  {
-    id:1,
-    name : '高等数学',
-    teacher_id : 1,
-    teacher_name : '许小龙',
-    semester : '2023-2024-2',
-    cover_image : '@/assets/img/image.png',
-  },
-  {
-    id:1,
-    name : '高等数学',
-    teacher_id : 1,
-    teacher_name : '许小龙',
-    semester : '2023-2024-2',
-    cover_image : '@/assets/img/image.png',
-  },
-  {
-    id:1,
-    name : '高等数学',
-    teacher_id : 1,
-    teacher_name : '许小龙',
-    semester : '2023-2024-2',
-    cover_image : '@/assets/img/image.png',
-  },
-  {
-    id:1,
-    name : '高等数学',
-    teacher_id : 1,
-    teacher_name : '许小龙',
-    semester : '2023-2024-2',
-    cover_image : '@/assets/img/image.png',
-  },
-  {
-    id:1,
-    name : '高等数学',
-    teacher_id : 1,
-    teacher_name : '许小龙',
-    semester : '2023-2024-2',
-    cover_image : '@/assets/img/image.png',
-  },
-]
+const props = defineProps<{
+    data:CourseDataForm []
+  }>();
+  
 </script>
 
 <style scoped>
@@ -94,24 +44,11 @@ const data : CourseDataForm []= [
   border-radius: 4px;
   padding: 0;
 }
+.scrollable-container {
+  max-height: 80vh; /* 父组件高度 */
+  overflow-y: auto; /* 超出高度时滚动 */
+  overflow-x: hidden
+}
 
-:deep(#components-grid-demo-playground) [class~='ant-col'] {
- 
-}
-:deep(#components-grid-demo-playground) [class~='ant-col'] > div {
-  
-}
-:deep(#components-grid-demo-playground) pre {
-  padding: 8px 16px;
-  font-size: 13px;
-  background: #f9f9f9;
-  border-radius: 6px;
-}
-:deep(#components-grid-demo-playground) pre.demo-code {
-  direction: ltr;
-}
-:deep(#components-grid-demo-playground) .ant-col {
-  
-}
 
 </style>
