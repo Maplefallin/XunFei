@@ -20,8 +20,10 @@ const route:Array<RouteRecordRaw>=[
             component:()=>import('@/views/course/index.vue'),
             meta:{
                 title:"我的课程"
-            }
+            },
+
         },
+        
         {
             name:"signin",
             path:"signin",
@@ -33,7 +35,7 @@ const route:Array<RouteRecordRaw>=[
         {
             name:"homework",
             path:"homework",
-            component:()=>import('@/views/backEnd/personal/PersonalInfo.vue'),
+            component:()=>import('@/views/homework/index.vue'),
             meta:{
                 title:"我的作业"
             }
@@ -46,22 +48,7 @@ const route:Array<RouteRecordRaw>=[
                 title:"学习记录"
             }
         },
-        {
-            name:"chatPage",
-            path:"chatroom",
-            component:chatPage ,
-            meta:{
-                title:"AI助教"
-            }
-        },
-        {
-            name:"recommendCourse",
-            path:"recommendCourse",
-            component:()=>import('@/views/backEnd/personal/PersonalInfo.vue'),
-            meta:{
-                title:"AI推荐"
-            }
-        },
+      
 ]
 }]
 

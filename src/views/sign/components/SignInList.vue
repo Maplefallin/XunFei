@@ -1,96 +1,79 @@
 <template>
-  <a-table
-    :columns="columns"
+  <List 
+    item-layout="horizontal" 
     :data-source="props.data"
-    :pagination="{ pageSize: 50 }"
-    :scroll="{ y: 540 }"
-    style="margin: 10px;"
-  >
-    <template #headerCell="{ column }">
-      <template v-if="column.key === 'name'">
-        <span>
-          <smile-outlined />
-          课程名
-        </span>
-      </template>
+    style="max-height: 70vh; overflow-y: auto; padding: 10px"
+    >
+    <template #renderItem="{ item }">
+      <ListItem class="list-item" @click = "navigateTo(item)">
+        <Checkbox v-model="selectedItems" :value="item" style="margin: 10px;"></Checkbox>
+        <ListItemMeta>       >
+          <template #title>
+            <div style="display: flex;  margin-right:10px">
+              <p style="font-size: large;font-weight: 500;">{{item.name}}</p>
+              <a-tag color="red" v-if="item.tags === 'lose'" style="height: 20px; display: block; margin:5px ">lose</a-tag>
+              <a-tag color="blue" v-else="item.tags === 'finish'" style="height: 20px; display: block; margin:5px ">finish</a-tag>
+            </div>
+          </template>
+          <template #description>
+            类型：{{item.type}}  -  {{item.time}}
+          </template>
+          <template #avatar>
+            <avatar shape="square" style="background-color: #1890ff;" size="large">签到</avatar>
+          </template>
+        </ListItemMeta>
+      </ListItem>    
     </template>
-
-    <template #bodyCell="{ column, record }">
-      <template v-if="column.key === 'name'">
-        <a>
-          {{ record.name }}
-        </a>
-      </template>
-      <template v-else-if="column.key === 'tags'">
-        <span>
-          <a-tag v-if="record.tags === 'lose'" color="error">
-            <template #icon>
-              <close-circle-outlined />
-            </template>
-            lose
-          </a-tag>
-          <a-tag v-else-if="record.tags === 'finish'" color="success">
-            <template #icon>
-              <check-circle-outlined />
-            </template>
-            finish
-          </a-tag>
-        </span>
-      </template>
-      <template v-else-if="column.key === 'action'">
-        <span>
-          <a-button type="link">查看</a-button>
-          <a-divider type="vertical" />
-          <a-button type="link">更多</a-button>
-        </span>
-      </template>
-    </template>
-  </a-table>
+  </List>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { SmileOutlined, CloseCircleOutlined, CheckCircleOutlined } from '@ant-design/icons-vue';
-import type { TableColumnsType } from 'ant-design-vue';
-import type { signinItem } from '@/views/sign/interface/SignInterface';
+import { List, ListItem,ListItemMeta, Checkbox, Avatar, Badge } from 'ant-design-vue';
+import { useRouter } from 'vue-router';
+import type { signinItem } from '@/views/sign/interface/SignInterface'
 
+const router = useRouter();
 const props = defineProps<{
-  data: Array<signinItem>;
+  data: Array<signinItem>
 }>();
+const selectedItems = ref([]);
 
-const columns = ref<TableColumnsType>([
-  {
-    dataIndex: 'name',
-    key: 'name',
-    resizable: true,
-    width: 150,
-  },
-  {
-    title: '类型',
-    dataIndex: 'type',
-    key: 'type',
-    resizable: true,
-    width: 100,
-    minWidth: 100,
-    maxWidth: 200,
-  },
-  {
-    title: '发布时间',
-    dataIndex: 'time',
-    key: 'time',
-  },
-  {
-    title: '状态',
-    key: 'tags',
-    dataIndex: 'tags',
-  },
-  {
-    title: '操作',
-    key: 'action',
-  },
-]);
+const navigateTo = (item:signinItem) => {
+  const itemId = item.id
+  const itemName = item.name
+  router.push({path:"/detail/signDetail", query:{id:itemId,name:itemName}});
+};
 </script>
 
-<style>
-/* 添加你的样式 */
+<style scoped>
+.list-item {
+  height: 100px;
+  margin-bottom: 10px;
+  border: 1px solid #e8e8e8;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+}
+
+.list-item:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.list-item:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 0;
+}
+
+/* 移除操作按钮样式，因为当前模板中没有操作按钮 */
 </style>

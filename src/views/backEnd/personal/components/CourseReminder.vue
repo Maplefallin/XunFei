@@ -29,53 +29,17 @@ import { List, ListItem, ListItemMeta, Avatar } from 'ant-design-vue';
 //@ts-ignore
 import { CourseInfo } from '@/views/backEnd/personal/interface/DataFormat';
 import { useRouter } from 'vue-router';
+import { ref } from 'vue';
 
 const router = useRouter()
 const props = defineProps<{
-      dayCourseInfo : CourseInfo[]
+      dayCourseInfo : Array<CourseInfo>
     }>();
 
 const navigateTo = (path: string) => {
     router.push(path);
   };
-const data : CourseInfo[] = [
-  {
-    name: '高等数学',
-    time: {
-      beginTime: '15:55:00',
-      endTime: '17:35:00',
-      duration: '100'
-    },
-    location: '文德S403'
-  },
-  {
-    name: '概率统计',
-    time: {
-      beginTime: '15:55:00',
-      endTime: '17:35:00',
-      duration: '100'
-    },
-    location: '明德S403'
-  },
-  {
-    name: '学术英语',
-    time: {
-      beginTime: '15:55:00',
-      endTime: '17:35:00',
-      duration: '100'
-    },
-    location: '揽江S403'
-  },
-  {
-    name: '计算机网络',
-    time: {
-      beginTime: '15:55:00',
-      endTime: '17:35:00',
-      duration: '100'
-    },
-    location: '临江S403'
-  },
-];
+
 </script>
 
 <style>

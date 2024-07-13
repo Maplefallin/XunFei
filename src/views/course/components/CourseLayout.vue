@@ -6,7 +6,7 @@
         v-for="(item) in props.data"
         :key="item.id"
       >
-        <div class="item" @click="navigateTo('/myStudy/signin')">
+        <div class="item" @click="navigateTo(item)">
           <CourseItem :data="item"></CourseItem>
         </div>
       </a-col>
@@ -22,14 +22,17 @@ import { useRouter } from 'vue-router';
 import CourseItem from '@/views/course/components/CourseItem.vue'
 
 
+
 const router = useRouter();
 
-const navigateTo = (path: string) => {
-  router.push(path);
+const navigateTo = (item:CourseDataForm) => {
+  const itemId = item.id
+  const itemName = item.name
+  router.push({path:"/detail/courseDetail", query:{id:itemId,name:itemName}});
 };
 
 const props = defineProps<{
-    data:CourseDataForm []
+    data:Array<CourseDataForm>
   }>();
   
 </script>

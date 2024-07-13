@@ -31,7 +31,7 @@ const onPanelChange = (value: Dayjs, mode: string) => {
   console.log(value, mode);
 };
 
-const dayCoursesInfo = ref<CourseInfo[]>([]);
+const dayCoursesInfo = ref<Array<CourseInfo>>([]);
 
 //获取选择日期的课程的方法
 const getSelectedDayCourse = async (selectedDate: string) => {
@@ -51,7 +51,7 @@ onMounted(() => {
 });
 
 // 测试数据
-const dayCourseInfo: CourseInfo[] = [
+const dayCourseInfo = ref<Array<CourseInfo>> ([
   {
     name: '高等数学',
     time: {
@@ -88,19 +88,19 @@ const dayCourseInfo: CourseInfo[] = [
     },
     location: '临江S403'
   },
-];
+])
 
 const filteredDayCourseInfo = computed(() => {
   if (selectedDate.value) {
     // 假设课程信息有日期字段，进行过滤（这里假设日期格式为 'YYYY-MM-DD'）
     // 如果没有日期字段，需要补充日期字段和相应的逻辑
-    return dayCourseInfo.filter(course => {
+    return dayCourseInfo.value.filter(course => {
       // 比较逻辑，根据需要调整
       // return course.date === selectedDate.value.format('YYYY-MM-DD');
       return true; // 假设所有课程都显示，待具体日期字段添加后修改
     });
   }
-  return dayCourseInfo;
+  return dayCourseInfo.value;
 });
 </script>
 

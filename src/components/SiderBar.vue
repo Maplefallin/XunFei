@@ -16,7 +16,7 @@
               <template #title>
                 {{ fRoute.meta!.title }}
               </template>
-              <MenuItem v-for="sRoute in fRoute.children"  :key="sRoute.name">
+              <MenuItem v-for="sRoute in fRoute.children" :key="sRoute.name">
                 <RouterLink :to="fRoute.path + '/' + sRoute.path">{{ sRoute.meta!.title }}</RouterLink>
               </MenuItem>   
             </SubMenu>

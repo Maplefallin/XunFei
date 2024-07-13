@@ -8,7 +8,7 @@ const route:Array<RouteRecordRaw>=[
     component:SiderBar,
     redirect:'chatPage ',
     meta:{
-        title:"智慧Chat"
+        title:"AI助教"
     },
     children:[{
         name:"chatPage",
@@ -17,7 +17,17 @@ const route:Array<RouteRecordRaw>=[
         meta:{
             title:"聊天室"
         }
-    }]
+    },
+    {
+        name:"recommendCourse",
+        path:"recommendCourse",
+        component:()=>import('@/views/backEnd/personal/PersonalInfo.vue'),
+        meta:{
+            title:"AI推荐"
+        }
+    },
+    
+]
     
 }
 ]

@@ -75,7 +75,7 @@ const data= ref<Array<CourseDataForm>>([
     cover_image : '/src/assets/img/image.png',
   },
   {
-    id:1,
+    id:2,
     name : '计算机网络',
     teacher_id : 1,
     teacher_name : '许小龙',
@@ -83,14 +83,14 @@ const data= ref<Array<CourseDataForm>>([
     cover_image : '/src/assets/img/image.png',
   },
   {
-    id:1,
+    id:3,
     name : '算法分析与设计',
     teacher_id : 1,
     teacher_name : '许小龙',
     semester : '2023-2024-2',
     cover_image : '/src/assets/img/image.png',
   }, {
-    id:1,
+    id:4,
     name : '数据库原理',
     teacher_id : 1,
     teacher_name : '许小龙',
@@ -98,7 +98,7 @@ const data= ref<Array<CourseDataForm>>([
     cover_image : '/src/assets/img/image.png',
   },
   {
-    id:1,
+    id:5,
     name : '高等数学',
     teacher_id : 1,
     teacher_name : '许小龙',
