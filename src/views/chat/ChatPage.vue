@@ -37,9 +37,11 @@
       </div>
     </a-card>
   </div>
+  
 </template>
 
 <script setup lang="ts">
+
 import { color } from "echarts";
 import { ref, reactive, onMounted } from "vue";
 //   import { AIQandA, getQandA } from "../api/AIApi";

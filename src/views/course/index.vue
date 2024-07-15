@@ -13,10 +13,10 @@
         />
         <a-modal v-model:open="open" title="Title" @ok="handleOk" style="height: 60vh;width: 60vw;">
           
-          <AddCourseComponent :data="data"></AddCourseComponent>
+          <AddCourseComponent @update:data="updateData" ></AddCourseComponent>
           <template #footer>
             <a-button key="back" @click="handleCancel">Return</a-button>
-            <a-button key="submit" type="primary" :loading="loading" @click="handleOk">Submit</a-button>
+            <a-button key="submit" type="primary" :loading="loading" @click="handleOk">完成</a-button>
           </template>
         </a-modal>
       </div>
@@ -34,6 +34,7 @@ import { Button, Input } from 'ant-design-vue';
 import type { CourseDataForm } from './interface/DataFormat';
 import { ref } from 'vue';
 import { getUserAllCourse } from '@/api/course';
+
 
 // const courseData = ref<Array<CourseDataForm>>([])
 
@@ -58,6 +59,8 @@ const handleOk = () => {
     loading.value = false;
     open.value = false;
   }, 2000);
+
+  console.log(data.value)
 };
 
 const handleCancel = () => {
@@ -106,6 +109,10 @@ const data= ref<Array<CourseDataForm>>([
     cover_image : '/src/assets/img/image.png',
   },
 ])
+
+const updateData =(newData:Array<CourseDataForm>)=>{
+  data.value = newData
+}
 
 const searchItem = ref<String>('')
 

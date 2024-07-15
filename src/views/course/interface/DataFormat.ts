@@ -6,3 +6,8 @@ export interface CourseDataForm{
     semester : string;
     cover_image : string;
 }
+
+export interface SelectedCoursesType {
+    [key: string]: boolean;
+  }
+    

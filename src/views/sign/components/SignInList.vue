@@ -42,7 +42,8 @@ const selectedItems = ref([]);
 const navigateTo = (item:signinItem) => {
   const itemId = item.id
   const itemName = item.name
-  router.push({path:"/detail/signDetail", query:{id:itemId,name:itemName}});
+  const itemType = item.type
+  router.push({path:"/detail/signDetail", query:{id:itemId,name:itemName,type:itemType}});
 };
 </script>
 

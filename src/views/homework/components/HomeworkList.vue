@@ -51,7 +51,8 @@ const targetGroup = ref('')
 const navigateTo = (path:string, item:HomeworkDataFormat) => {
   const itemId = item.id
   const itemName = item.course
-  router.push({ path:path,query:{id:itemId,course:itemName} });
+  const content = item.content
+  router.push({ path:path,query:{id:itemId,course:itemName,content:content} });
 };
 
 // const moveTo = () => {
